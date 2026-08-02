@@ -1,2 +1,5 @@
 django
 environs
+psycopg2
+django-extensions
+

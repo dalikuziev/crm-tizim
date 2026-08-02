@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}SubjectList{% endblock %}
+{% block content %}
+
+<h1>
+    <ol>
+        {% for subject in subjects %}
+            <li>
+                <a href="{% url 'subject_detail' subject.pk %}">{{ subject.title }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+</h1>
+
+<form action="{% url 'subject_create' %}">
+    <button>
+        Create
+    </button>
+</form>
+
+
+{% endblock %}

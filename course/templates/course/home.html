@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1>
+        AL-FARG'ONIY
+    </h1>
+    <h1>
+        O'quv markazining crm tizimi
+    </h1>
+    <form action="{% url 'subject_list' %}">
+        <button>
+            Subjects
+        </button>
+    </form>
+    <form action="{% url 'teacher_list' %}">
+        <button>
+            Teachers
+        </button>
+    </form>
+{% endblock %}
