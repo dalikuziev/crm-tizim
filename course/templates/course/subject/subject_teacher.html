@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}SubjectTeacher{% endblock %}
+{% block content %}
+
+<h1>
+    Fan Ustozi: {{ subject.teacher }}
+</h1>
+    <ol>
+        {% for i in subject.teacher.student.all %}
+            <li>
+                {{ i }}
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

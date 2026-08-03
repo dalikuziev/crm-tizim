@@ -1,1 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}TeacherDelete{% endblock %}
+{% block content %}
 
+<h1>
+    {{ teacher }} ni rostdan o'chirasizmi?
+</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button>
+        o'chirish
+    </button>
+</form>
+
+{% endblock %}

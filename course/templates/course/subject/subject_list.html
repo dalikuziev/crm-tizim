@@ -6,7 +6,7 @@
     <ol>
         {% for subject in subjects %}
             <li>
-                <a href="{% url 'subject_detail' subject.pk %}">{{ subject.title }}</a>
+                <a href="{% url 'subject_teacher' subject.pk %}">{{ subject.title }}</a>
             </li>
         {% endfor %}
     </ol>
@@ -14,7 +14,7 @@
 
 <form action="{% url 'subject_create' %}">
     <button>
-        Create
+        Yaratish fan qo'shish
     </button>
 </form>
 

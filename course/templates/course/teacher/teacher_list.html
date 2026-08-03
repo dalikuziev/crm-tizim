@@ -3,12 +3,18 @@
 {% block content %}
 
 <h1>
-T
+    <ul>
+        {% for teacher in teachers %}
+            <li>
+                <a href="{% url 'teacher_detail' teacher.pk %}">{{ teacher }}</a>
+            </li>
+        {% endfor %}
+    </ul>
 </h1>
 
 <form action="{% url 'teacher_create' %}">
     <button>
-        Create
+        Yangi ustoz yaratish
     </button>
 </form>
 

@@ -1,2 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}TeacherDetail{% endblock %}
+{% block content %}
+
+<h1>
+    Ism: {{ teacher.first_name }}
+</h1>
+<h1>
+    Familya: {{ teacher.last_name }}
+</h1>
+<h1>
+    Telefon: {{ teacher.phone_number }}
+</h1>
+<h1>
+    Tug'ilgan sana: {{ teacher.birth_date }}
+</h1>
 
 
+<form action="{% url 'teacher_update' teacher.pk %}">
+    <button>
+        Ustoz ma'lumotlarini yangilash
+    </button>
+</form>
+<form action="{% url 'teacher_delete' teacher.pk %}">
+    <button>
+        Ustozni o'chirish
+    </button>
+</form>
+
+{% endblock %}

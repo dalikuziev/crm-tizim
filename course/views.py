@@ -21,16 +21,6 @@ class SubjectListView(View):
                 'subjects': subjects,
             }
         )
-class SubjectDetailView(View):
-    def get(self, request, pk):
-        subject = get_object_or_404(Subject, pk=pk)
-        return render(
-            request,
-            'course/subject/subject_detail.html',
-            {
-                'subject': subject,
-            }
-        )
 class SubjectCreateView(View):
     def get(self, request):
         form = SubjectForm()
@@ -53,44 +43,17 @@ class SubjectCreateView(View):
                 'form': form,
             }
         )
-class SubjectUpdateView(View):
-    def get(self, request, pk):
-        subject = get_object_or_404(Subject, pk=pk)
-        form = SubjectForm(instance=subject)
-        return render(
-            request,
-            'course/subject/subject_update.html',
-            {
-                'form': form,
-            }
-        )
-    def post(self, request, pk):
-        subject = get_object_or_404(Subject, pk=pk)
-        form = SubjectForm(request.POST, instance=subject)
-        if form.is_valid():
-            form.save()
-            return redirect('subject_list')
-        return render(
-            request,
-            'course/subject/subject_update.html',
-            {
-                'form': form,
-            }
-        )
-class SubjectDeleteView(View):
+
+class SubjectTeacher(View):
     def get(self, request, pk):
         subject = get_object_or_404(Subject, pk=pk)
         return render(
             request,
-            'course/subject/subject_delete.html',
+            'course/subject/subject_teacher.html',
             {
-                'subject': subject,
+                "subject": subject,
             }
         )
-    def post(self, request, pk):
-        subject = get_object_or_404(Subject, pk=pk)
-        subject.delete()
-        return redirect('subject_list')
 
 class TeacherListView(View):
     def get(self, request):
