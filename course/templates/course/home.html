@@ -5,20 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>
-        AL-FARG'ONIY
-    </h1>
-    <h1>
-        O'quv markazining crm tizimi
-    </h1>
-    <form action="{% url 'subject_list' %}">
-        <button>
-            Fanlar
-        </button>
-    </form>
-    <form action="{% url 'teacher_list' %}">
-        <button>
-            Uztozlar
-        </button>
-    </form>
+<div class="card col-12 col-md-6 mx-auto shadow-sm border-0">
+    <div class="card-body text-center py-5">
+        <h1 class="card-title fw-bold mb-3" style="color: #2c3e50;">AL-FARG'ONIY</h1>
+        <p class="card-text text-muted mb-4">O'quv markazining crm tizimi</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{% url 'subject_list' %}" class="btn btn-primary px-4">Fanlar</a>
+            <a href="{% url 'teacher_list' %}" class="btn btn-primary px-4">Uztozlar</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
