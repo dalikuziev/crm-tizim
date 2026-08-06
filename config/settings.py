@@ -64,14 +64,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": env.str("DB_NAME", default="crm_tizim"),
+#         "USER": env.str("DB_USER", default="postgres"),
+#         "PASSWORD": env.str("PASSWORD"),
+#         "HOST": env.str("DB_HOST", default="127.0.0.1"),
+#         "PORT": env.str("DB_PORT", default="5432"),
+#     }
+# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "crm_tizim",
-        "USER": "postgres",
-        "PASSWORD": env.str("PASSWORD"),
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "ENGINE": env.str("DB_ENGINE", default="django.db.backends.postgresql"),
+        "NAME": env.str("DB_NAME", default="crm_tizim"),
+        "USER": env.str("DB_USER", default="postgres"),
+        "PASSWORD": env.str("DB_PASSWORD", default="admin"),
+        "HOST": env.str("DB_HOST", default="127.0.0.1"),
+        "PORT": env.str("DB_PORT", default="5432"),
     }
 }
 
