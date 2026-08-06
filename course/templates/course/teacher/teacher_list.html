@@ -2,20 +2,18 @@
 {% block title %}TeacherList{% endblock %}
 {% block content %}
 
-<h1>
-    <ul>
+<div class="mx-auto mt-4" style="max-width: 600px;">
+    <h3 class="text-center mb-4 text-white">Ustozlar ro'yxati</h3>
+    <div class="list-group mb-4 shadow-sm">
         {% for teacher in teachers %}
-            <li>
-                <a href="{% url 'teacher_detail' teacher.pk %}">{{ teacher }}</a>
-            </li>
+            <a href="{% url 'teacher_detail' teacher.pk %}" class="list-group-item list-group-item-action">
+                {{ teacher }}
+            </a>
         {% endfor %}
-    </ul>
-</h1>
-
-<form action="{% url 'teacher_create' %}">
-    <button>
-        Yangi ustoz yaratish
-    </button>
-</form>
+    </div>
+    <div class="text-center">
+        <a href="{% url 'teacher_create' %}" class="btn btn-primary px-4">Ustoz qo'shish</a>
+    </div>
+</div>
 
 {% endblock %}

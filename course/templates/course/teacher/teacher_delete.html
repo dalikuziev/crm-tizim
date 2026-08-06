@@ -2,15 +2,20 @@
 {% block title %}TeacherDelete{% endblock %}
 {% block content %}
 
-<h1>
-    {{ teacher }} ni rostdan o'chirasizmi?
-</h1>
-
-<form method="post">
-    {% csrf_token %}
-    <button>
-        o'chirish
-    </button>
-</form>
+<div class="mx-auto mt-5" style="max-width: 500px;">
+    <div class="card shadow-sm border-0 text-center">
+        <div class="card-body p-5">
+            <h4 class="text-danger mb-3">Diqqat, tasdiqlang!</h4>
+            <p class="mb-4 text-secondary">
+                Haqiqatan ham <strong class="text-dark fs-5">{{ teacher }}</strong> ni ro'yxatdan butunlay o'chirib tashlamoqchimisiz?
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="javascript:history.back()" class="btn btn-light px-4 me-2 border">Yo'q, qaytish</a>
+                <button type="submit" class="btn btn-danger px-4">Ha, o'chirish</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

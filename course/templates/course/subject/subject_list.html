@@ -2,21 +2,18 @@
 {% block title %}SubjectList{% endblock %}
 {% block content %}
 
-<h1>
-    <ol>
+<div class="mx-auto mt-4" style="max-width: 600px;">
+    <h3 class="text-center mb-4 text-dark">Fanlar ro'yxati</h3>
+    <div class="list-group mb-4 shadow-sm">
         {% for subject in subjects %}
-            <li>
-                <a href="{% url 'subject_teacher' subject.pk %}">{{ subject.title }}</a>
-            </li>
+            <a href="{% url 'subject_teacher' subject.pk %}" class="list-group-item list-group-item-action">
+                {{ subject }}
+            </a>
         {% endfor %}
-    </ol>
-</h1>
-
-<form action="{% url 'subject_create' %}">
-    <button>
-        Yaratish fan qo'shish
-    </button>
-</form>
-
+    </div>
+    <div class="text-center">
+        <a href="{% url 'teacher_create' %}" class="btn btn-primary px-4">Fan qo'shish</a>
+    </div>
+</div>
 
 {% endblock %}

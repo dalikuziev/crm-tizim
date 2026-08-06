@@ -2,14 +2,15 @@
 {% block title %}SubjectTeacher{% endblock %}
 {% block content %}
 
-<h1>
-    Fan Ustozi: {{ subject.teacher }}
-</h1>
-    <ol>
+<div class="mx-auto mt-4" style="max-width: 500px;">
+    <h3 class="mb-4 text-center">Fan Ustozi: {{ subject.teacher }}</h3>
+    <ol class="list-group list-group-numbered shadow-sm">
         {% for i in subject.teacher.student.all %}
-            <li>
+            <li class="list-group-item">
                 {{ i }}
             </li>
         {% endfor %}
     </ol>
+</div>
+
 {% endblock %}

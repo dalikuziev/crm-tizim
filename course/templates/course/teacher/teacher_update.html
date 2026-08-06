@@ -2,12 +2,55 @@
 {% block title %}TeacherUpdate{% endblock %}
 {% block content %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>
-        yangilash
-    </button>
-</form>
+<div class="mx-auto mt-4" style="max-width: 600px;">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <h4 class="mb-4 text-center border-bottom pb-3">Ma'lumotlarni yangilash</h4>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Ism</label>
+                    {{ form.first_name }}
+                    <div class="text-danger small">{{ form.first_name.errors }}</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Familiya</label>
+                    {{ form.last_name }}
+                    <div class="text-danger small">{{ form.last_name.errors }}</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Telefon raqam</label>
+                    {{ form.phone_number }}
+                    <div class="text-danger small">{{ form.phone_number.errors }}</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tug'ilgan sana</label>
+                    {{ form.birth_date }}
+                    <div class="text-danger small">{{ form.birth_date.errors }}</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Talabalar</label>
+                    {{ form.student }}
+                    <div class="text-danger small">{{ form.student.errors }}</div>
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="javascript:history.back()" class="btn btn-light px-4 border">Orqaga</a>
+                    <button type="submit" class="btn btn-success px-4">Yangilash</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('id_first_name').className = 'form-control';
+    document.getElementById('id_first_name').placeholder = 'Ism kiriting...';
+    document.getElementById('id_last_name').className = 'form-control';
+    document.getElementById('id_last_name').placeholder = 'Familiya kiriting...';
+    document.getElementById('id_phone_number').className = 'form-control';
+    document.getElementById('id_phone_number').placeholder = '+998901234567';
+    document.getElementById('id_birth_date').className = 'form-control';
+    document.getElementById('id_birth_date').type = 'date';
+    document.getElementById('id_student').className = 'form-select';
+</script>
 
 {% endblock %}

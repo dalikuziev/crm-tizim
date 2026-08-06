@@ -4,10 +4,25 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button>
-        yaratish
-    </button>
+
+    <div class="mb-3">
+        <label class="form-label">Fan nomi</label>
+        {{ form.title }}
+        <div class="text-danger small">{{ form.title.errors }}</div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">O'qituvchi</label>
+        {{ form.teacher }}
+        <div class="text-danger small">{{ form.teacher.errors }}</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary px-4">Yaratish</button>
 </form>
 
+<script>
+    document.getElementById('id_title').className = 'form-control';
+    document.getElementById('id_title').placeholder = 'Fan nomini kiriting...';
+    document.getElementById('id_teacher').className = 'form-select';
+</script>
 {% endblock %}

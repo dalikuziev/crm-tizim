@@ -2,29 +2,37 @@
 {% block title %}TeacherDetail{% endblock %}
 {% block content %}
 
-<h1>
-    Ism: {{ teacher.first_name }}
-</h1>
-<h1>
-    Familya: {{ teacher.last_name }}
-</h1>
-<h1>
-    Telefon: {{ teacher.phone_number }}
-</h1>
-<h1>
-    Tug'ilgan sana: {{ teacher.birth_date }}
-</h1>
+<div class="mx-auto mt-4" style="max-width: 500px;">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <h4 class="card-title border-bottom pb-3 mb-4">Foydalanuvchi profili</h4>
 
+            <div class="row mb-3">
+                <div class="col-sm-5 text-secondary">Ism:</div>
+                <div class="col-sm-7 fw-bold text-dark">{{ teacher.first_name }}</div>
+            </div>
 
-<form action="{% url 'teacher_update' teacher.pk %}">
-    <button>
-        Ustoz ma'lumotlarini yangilash
-    </button>
-</form>
-<form action="{% url 'teacher_delete' teacher.pk %}">
-    <button>
-        Ustozni o'chirish
-    </button>
-</form>
+            <div class="row mb-3">
+                <div class="col-sm-5 text-secondary">Familiya:</div>
+                <div class="col-sm-7 fw-bold text-dark">{{ teacher.last_name }}</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-sm-5 text-secondary">Telefon raqam:</div>
+                <div class="col-sm-7 fw-bold text-dark">{{ teacher.phone_number }}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5 text-secondary">Tug'ilgan sana:</div>
+                <div class="col-sm-7 fw-bold text-dark">{{ teacher.birth_date }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3 text-center">
+        <a href="{% url 'teacher_update' teacher.pk %}" class="btn btn-primary px-4 me-2">O'zgartirish</a>
+        <a href="{% url 'teacher_delete' teacher.pk %}" class="btn btn-danger px-4">O'chirish</a>
+    </div>
+
+</div>
 
 {% endblock %}
