@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}StudentList{% endblock %}
+{% block content %}
+
+<div class="mx-auto mt-4" style="max-width: 800px;">
+    <h3 class="text-center mb-3 text-white">O'quvchilar ro'yxati</h3>
+
+    <div class="d-flex justify-content-between align-items-center mb-2 px-1">
+        <span class="text-white">
+            Jami: <strong class="text-primary">{{ students|length }}</strong> ta
+        </span>
+    </div>
+
+    <div class="list-group mb-4 shadow-sm">
+        {% for student in students %}
+            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <!-- Chap qism: Raqam, Ism va Familiya -->
+                <div class="text-truncate pe-3">
+                    <strong>{{ forloop.counter }}.</strong>
+                    {{ student.first_name }} {{ student.last_name }}
+                </div>
+
+                <!-- O'ng qism: Telefon raqam va Vaqt -->
+                <div class="d-flex align-items-center text-nowrap">
+                    <span class="text-muted me-3">
+                        <i class="bi bi-telephone-fill small"></i> {{ student.phone_number }}
+                    </span>
+                    <span class="badge bg-primary rounded-pill px-3 py-2">
+                        <i class="bi bi-clock"></i> {{ student.time|time:"H:i" }}
+                    </span>
+                </div>
+            </a>
+        {% empty %}
+            <div class="list-group-item text-center text-muted py-4">
+                Hozircha o'quvchilar yo'q. Birinchi bo'lib qo'shing!
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'student_create' %}" class="btn btn-primary px-4">O'quvchi qo'shish</a>
+    </div>
+</div>
+
+{% endblock %}

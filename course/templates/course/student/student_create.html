@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}StudentCreate{% endblock %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Ism</label>
+        {{ form.first_name }}
+        <div class="text-danger small">{{ form.first_name.errors }}</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Familiya</label>
+        {{ form.last_name }}
+        <div class="text-danger small">{{ form.last_name.errors }}</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Telefon raqam</label>
+        {{ form.phone_number }}
+        <div class="text-danger small">{{ form.phone_number.errors }}</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Vaqt</label>
+        {{ form.time }}
+        <div class="text-danger small">{{ form.time.errors }}</div>
+    </div>
+    <button type="submit" class="btn btn-primary px-4">Yaratish</button>
+</form>
+
+<script>
+    const firstName = document.getElementById('id_first_name');
+    firstName.className = 'form-control';
+    firstName.placeholder = 'Ism kiriting...';
+    const lastName = document.getElementById('id_last_name');
+    lastName.className = 'form-control';
+    lastName.placeholder = 'Familiya kiriting...';
+    const phoneNumber = document.getElementById('id_phone_number');
+    phoneNumber.className = 'form-control';
+    phoneNumber.placeholder = '+998901234567';
+    const time = document.getElementById('id_time');
+    time.className = 'form-control';
+    time.type = 'time';
+</script>
+{% endblock %}

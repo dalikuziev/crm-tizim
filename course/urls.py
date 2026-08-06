@@ -3,6 +3,7 @@ from .views import (
     HomeView,
     SubjectListView, SubjectTeacher, SubjectCreateView,
     TeacherListView, TeacherDetailView, TeacherCreateView, TeacherUpdateView, TeacherDeleteView,
+    StudentListView, StudentCreateView
 )
 
 urlpatterns = [
@@ -15,4 +16,6 @@ urlpatterns = [
     path('teachers/create/', TeacherCreateView.as_view(), name='teacher_create'),
     path('teachers/<int:pk>/update', TeacherUpdateView.as_view(), name='teacher_update'),
     path('teachers/<int:pk>/delete', TeacherDeleteView.as_view(), name='teacher_delete'),
+    path('students/', StudentListView.as_view(), name='student_list'),
+    path('students/create/', StudentCreateView.as_view(), name='student_create'),
 ]

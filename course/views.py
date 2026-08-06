@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.views import View
-from .models import Subject, Teacher
-from .forms import SubjectForm, TeacherForm
+from .models import Subject, Teacher, Student
+from .forms import SubjectForm, TeacherForm, StudentForm
 
 class HomeView(View):
     def get(self, request):
@@ -135,3 +135,36 @@ class TeacherDeleteView(View):
         teacher = get_object_or_404(Teacher, pk=pk)
         teacher.delete()
         return redirect('teacher_list')
+
+class StudentListView(View):
+    def get(self, request):
+        students = Student.objects.all()
+        return render(
+            request,
+            'course/student/student_list.html',
+            {
+                'students': students,
+            }
+        )
+class StudentCreateView(View):
+    def get(self, request):
+        form = StudentForm()
+        return render(
+            request,
+            'course/student/student_create.html',
+            {
+                'form': form,
+            }
+        )
+    def post(self, request):
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('student_list')
+        return render(
+            request,
+            'course/student/student_create.html',
+            {
+                'form': form,
+            }
+        )
