@@ -3,12 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Eng muhim qator shu: Saytni telefon ekraniga moslashtirishga ruxsat beradi -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<h1>
-    chalasi bor
-</h1>
 <body class="d-flex flex-column align-items-center pt-5" style="background-color: #0f172a !important; color: #ffffff !important; min-height: 100vh;">
     <div class="container">
         <div class="text-center mb-4">
@@ -16,8 +17,10 @@
                 <img src="{% static 'logo.png' %}" alt="Logo" style="max-height: 70px;">
             </a>
         </div>
+
         {% block content %}
         {% endblock %}
+
     </div>
 </body>
 </html>

@@ -2,4 +2,3 @@ django
 environs
 django-extensions
 psycopg2
-mysqlclient

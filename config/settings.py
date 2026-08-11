@@ -64,36 +64,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": env.str("DB_NAME", default="crm_tizim"),
-#         "USER": env.str("DB_USER", default="postgres"),
-#         "PASSWORD": env.str("PASSWORD"),
-#         "HOST": env.str("DB_HOST", default="127.0.0.1"),
-#         "PORT": env.str("DB_PORT", default="5432"),
-#     }
-# }
-DB_ENGINE = env.str("DB_ENGINE", default="django.db.backends.sqlite3")
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "crm_tizim",
+    }
+}
 
-if DB_ENGINE == "django.db.backends.sqlite3":
-    DATABASES = {
-        "default": {
-            "ENGINE": DB_ENGINE,
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": DB_ENGINE,
-            "NAME": env.str("DB_NAME", default="crm_tizim"),
-            "USER": env.str("DB_USER", default="postgres"),
-            "PASSWORD": env.str("DB_PASSWORD", default="admin"),
-            "HOST": env.str("DB_HOST", default="127.0.0.1"),
-            "PORT": env.str("DB_PORT", default="5432"),
-        }
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
