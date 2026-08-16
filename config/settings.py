@@ -1,6 +1,5 @@
 from pathlib import Path
 from environs import Env
-import os
 env = Env()
 env.read_env()
 
@@ -108,9 +107,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / 'static'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-a=0
+STATIC_ROOT = BASE_DIR / 'staticfiles'
