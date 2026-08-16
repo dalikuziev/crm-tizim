@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from environs import Env
 env = Env()
@@ -110,5 +111,5 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-a=0
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
