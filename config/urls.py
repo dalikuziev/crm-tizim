@@ -5,4 +5,5 @@ urlpatterns = [
     path('olmaxon/', admin.site.urls),
     path('', include('course.urls')),
     path('course/', include('course.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
