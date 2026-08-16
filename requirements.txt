@@ -2,3 +2,4 @@ django
 environs
 django-extensions
 psycopg2
+django-import-export
