@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from django.views import View
@@ -21,7 +22,7 @@ class SubjectListView(View):
                 'subjects': subjects,
             }
         )
-class SubjectCreateView(View):
+class SubjectCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = SubjectForm()
         return render(
@@ -75,7 +76,7 @@ class TeacherDetailView(View):
                 'teacher': teacher,
             }
         )
-class TeacherCreateView(View):
+class TeacherCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = TeacherForm()
         return render(
@@ -97,7 +98,7 @@ class TeacherCreateView(View):
                 'form': form,
             }
         )
-class TeacherUpdateView(View):
+class TeacherUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         teacher = get_object_or_404(Teacher, pk=pk)
         form = TeacherForm(instance=teacher)
@@ -121,7 +122,7 @@ class TeacherUpdateView(View):
                 'form': form,
             }
         )
-class TeacherDeleteView(View):
+class TeacherDeleteView(LoginRequiredMixin, View):
     def get(self, request, pk):
         teacher = get_object_or_404(Teacher, pk=pk)
         return render(
@@ -146,7 +147,7 @@ class StudentListView(View):
                 'students': students,
             }
         )
-class StudentCreateView(View):
+class StudentCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = StudentForm()
         return render(
